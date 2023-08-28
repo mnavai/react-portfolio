@@ -16,7 +16,7 @@ const LandingSection = () => (
     backgroundColor="#2A4365"
   >
     <VStack>
-      <Avatar name="Maryam Navaei" size='2xl' src="home/coder/project/reactlab/src/images/mary.png"></Avatar>
+      <Avatar name="Maryam Navaei" size='2xl' src="/Users/mnavai/Desktop/Personal/react-portfolio-meta/home/coder/project/reactlab/src/images/mary.png"></Avatar>
       <Heading fontSize='md'>{greeting}</Heading>
       <Heading>{bio1}</Heading>
       <Heading>{bio2}</Heading>
