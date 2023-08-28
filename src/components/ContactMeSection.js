@@ -22,9 +22,13 @@ const LandingSection = () => {
   const { onOpen } = useAlertContext();
 
   const formik = useFormik({
-    initialValues: {},
-    onSubmit: (values) => {},
-    validationSchema: Yup.object({}),
+    initialValues: {firstName:"", email:"", type:"hireMe", comment:""},
+    onSubmit: (values) => { submit("", values)},
+    validationSchema: Yup.object({
+      firstName: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      comment: Yup.string().min(25, "Must be at least 25 characters").required("Required")
+    }),
   });
 
   return (
