@@ -50,6 +50,7 @@ const LandingSection = () => {
                 <Input
                   id="firstName"
                   name="firstName"
+                  {...formik.getFieldProps(firstName)}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
@@ -59,12 +60,13 @@ const LandingSection = () => {
                   id="email"
                   name="email"
                   type="email"
+                  {...formik.getFieldProps(email)}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type">
+                <Select id="type" name="type" {...formik.getFieldProps(type)}>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
