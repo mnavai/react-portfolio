@@ -27,9 +27,19 @@ const LandingSection = () => {
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
-      comment: Yup.string().min(25, "Must be at least 25 characters").required("Required")
+      comment: Yup.string().min(10, "Must be at least 25 characters").required("Required")
     }),
   });
+
+  // Show an alert when the form is submitted successfully
+  useEffect(() => {
+    if (response) {
+      onOpen(response.type, response.message);
+      // Reset the form if the response is successful
+      if (response.type === "success")
+        formik.resetForm();
+    }
+  }, [response]);
 
   return (
     <FullScreenSection
@@ -80,10 +90,11 @@ const LandingSection = () => {
                   id="comment"
                   name="comment"
                   height={250}
+                  {...formik.getFieldProps("comment")}
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
+              <Button type="submit" colorScheme="purple" width="full" isLoading={isLoading}>
                 Submit
               </Button>
             </VStack>
