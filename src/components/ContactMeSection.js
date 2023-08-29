@@ -43,14 +43,14 @@ const LandingSection = () => {
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl isInvalid={false}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
-                  {...formik.getFieldProps(firstName)}
+                  {...formik.getFieldProps("firstName")}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
@@ -60,13 +60,13 @@ const LandingSection = () => {
                   id="email"
                   name="email"
                   type="email"
-                  {...formik.getFieldProps(email)}
+                  {...formik.getFieldProps("email")}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps(type)}>
+                <Select id="type" name="type" {...formik.getFieldProps("type")}>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
